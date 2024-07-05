@@ -75,7 +75,7 @@ handle_download_and_unzip() {
 
 core_config() {
 
-  local github_url="https://raw.githubusercontent.com/mtashani/reverse_reality_grpc_HalfDuplex_multiport_tunel/main/core.json"
+  local github_url="https://raw.githubusercontent.com/mtashani/Reverse-CDN-Tunel/main/core.json"
   local dest_file="core.json"
 
   echo "Downloading core.json from $github_url..."
@@ -184,7 +184,7 @@ function config_iran_server {
     display_logo
     
     handle_download_and_unzip
-    local github_url="https://raw.githubusercontent.com/mtashani/reverse_reality_grpc_HalfDuplex_multiport_tunel/main/iran_config.json"
+    local github_url="https://raw.githubusercontent.com/mtashani/Reverse-CDN-Tunel/main/iran_config.json"
     local dest_file="config.json"
 
     echo "Downloading config.json from $github_url..."
@@ -227,7 +227,7 @@ function config_iran_server {
 function config_kharej_server {
     display_logo
     handle_download_and_unzip
-    local github_url="https://raw.githubusercontent.com/mtashani/reverse_reality_grpc_HalfDuplex_multiport_tunel/main/khrej_config.json"
+    local github_url="https://raw.githubusercontent.com/mtashani/Reverse-CDN-Tunel/main/khrej_config.json"
     local dest_file="config.json"
 
     echo "Downloading config.json from $github_url..."
