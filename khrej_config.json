@@ -1,0 +1,73 @@
+{
+    "name": "config_reverse_tls_grpc_singleport_kharej",
+    "nodes": [
+        {
+            "name": "core_outbound",
+            "type": "TcpConnector",
+            "settings": {
+                "nodelay": true,
+                "address": "127.0.0.1",
+                "port": 443
+            }
+        },
+        {
+            "name": "bridge1",
+            "type": "Bridge",
+            "settings": {
+                "pair": "bridge2"
+            },
+            "next": "core_outbound"
+        },
+        {
+            "name": "bridge2",
+            "type": "Bridge",
+            "settings": {
+                "pair": "bridge1"
+            },
+            "next": "reverse_client"
+        },
+        {
+            "name": "reverse_client",
+            "type": "ReverseClient",
+            "settings": {
+            },
+            "next": "grpc_client"
+        },
+        {
+            "name": "grpc_client",
+            "type": "ProtoBufClient",
+            "settings": {},
+            "next": "h2client"
+        },
+        {
+            "name": "h2client",
+            "type": "Http2Client",
+            "settings": {
+                "host": "sub.mydomain.com",
+                "port": 443,
+                "path": "/service",
+                "content-type": "application/grpc"
+            },
+            "next": "sslclient"
+        },
+        {
+            "name": "sslclient",
+            "type": "OpenSSLClient",
+            "settings": {
+                "sni": "sub.mydomain.com",
+                "verify": true,
+                "alpn": "h2"
+            },
+            "next": "iran_outbound"
+        },
+        {
+            "name": "iran_outbound",
+            "type": "TcpConnector",
+            "settings": {
+                "nodelay": true,
+                "address": "sub.mydomain.com",
+                "port": 443
+            }
+        }
+    ]
+}
