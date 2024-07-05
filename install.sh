@@ -249,7 +249,7 @@ function config_kharej_server {
     jq --arg domain "$domain" \
        --arg port "$port" \
        '.nodes |= map(if .name == "h2client" then .settings.host = $domain else . end) |
-        .nodes |= map(if .name == "sslclien" then .settings.sni = $domain else . end) |
+        .nodes |= map(if .name == "sslclient" then .settings.sni = $domain else . end) |
         .nodes |= map(if .name == "iran_outbound" then .settings.address = $domain else . end) |
         .nodes |= map(if .name == "core_outbound" then .settings.port = $port else . end)' \
        "$dest_file" > temp.json && mv temp.json "$dest_file"
