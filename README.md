@@ -1,7 +1,7 @@
-﻿# Reverse Reality Tunel with Mux and HalfDuplex
+﻿# Reverse CDN Tunel
 ## Install
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mtashani/reverse_reality_grpc_HalfDuplex_multiport_tunel/main/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/mtashani/Reverse-CDN-Tunel/main/install.sh)
 ```
 
 
