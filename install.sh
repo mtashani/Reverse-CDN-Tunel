@@ -7,7 +7,7 @@ ARCH=$(uname -m)
 if [ "$ARCH" == "aarch64" ]; then
   ASSET_NAME="Waterwall-linux-arm64.zip"
 elif [ "$ARCH" == "x86_64" ]; then
-  ASSET_NAME="Waterwall-linux-64.zip"
+  ASSET_NAME="Waterwall_Linux_X64_gcc.zip"
 else
   echo "Unsupported architecture: $ARCH"
   exit 1
